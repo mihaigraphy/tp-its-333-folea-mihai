@@ -1,0 +1,195 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Student Management API",
+        "description": "API for managing students and authentication.",
+        "version": "1.0.0"
+    },
+    "components": {
+        "securitySchemes": {
+            "cookieAuth": {
+                "type": "apiKey",
+                "in": "cookie",
+                "name": "access_token_cookie"
+            }
+        }
+    },
+    "security": [
+        {
+            "cookieAuth": []
+        }
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "summary": "Login to the application",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "username",
+                                    "password"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "302": {
+                        "description": "Redirects to index on success, or stays on login on failure."
+                    }
+                },
+                "security": []
+            },
+            "get": {
+                "summary": "Get login page",
+                "responses": {
+                    "200": {
+                        "description": "Returns login HTML page"
+                    }
+                },
+                "security": []
+            }
+        },
+        "/register": {
+            "post": {
+                "summary": "Register a new user",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "username": {
+                                        "type": "string"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "username",
+                                    "password"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "302": {
+                        "description": "Redirects to login page on success."
+                    }
+                },
+                "security": []
+            }
+        },
+        "/logout": {
+            "get": {
+                "summary": "Logout the user",
+                "responses": {
+                    "302": {
+                        "description": "Redirects to login page."
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "summary": "List all students",
+                "responses": {
+                    "200": {
+                        "description": "Returns HTML list of students"
+                    },
+                    "302": {
+                        "description": "Redirects to login if unauthorized"
+                    }
+                }
+            }
+        },
+        "/new": {
+            "post": {
+                "summary": "Add a new student",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nom": {
+                                        "type": "string"
+                                    },
+                                    "addr": {
+                                        "type": "string"
+                                    },
+                                    "pin": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "nom",
+                                    "addr",
+                                    "pin"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "302": {
+                        "description": "Redirects to index."
+                    }
+                }
+            }
+        },
+        "/update": {
+            "post": {
+                "summary": "Update a student's address and pin",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/x-www-form-urlencoded": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nom": {
+                                        "type": "string",
+                                        "description": "Name of the student to update (used as ID)"
+                                    },
+                                    "addr": {
+                                        "type": "string"
+                                    },
+                                    "pin": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "nom",
+                                    "addr",
+                                    "pin"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "302": {
+                        "description": "Redirects to index."
+                    }
+                }
+            }
+        }
+    }
+}

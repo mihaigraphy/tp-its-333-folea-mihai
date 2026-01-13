@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Étudiants</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1,
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .form-container {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        .update-form {
+            border-left: 5px solid #2196F3;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>Liste des Étudiants</h1>
+        <a href="/logout"
+            style="padding: 10px; background: #f44336; color: white; text-decoration: none; border-radius: 4px;">Logout</a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Pincode</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student['nom'] }}</td>
+                <td>{{ student['addr'] }}</td>
+                <td>{{ student['pin'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="form-container">
+        <h2>Ajouter un Étudiant</h2>
+        <form action="/new" method="POST">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="addr">Adresse</label>
+            <textarea id="addr" name="addr" required></textarea>
+
+            <label for="pin">Pincode</label>
+            <input type="text" id="pin" name="pin" required>
+
+            <input type="submit" value="Ajouter">
+        </form>
+    </div>
+
+    <div class="form-container update-form">
+        <h2>Modifier un Étudiant</h2>
+        <p>Entrez le nom de l'étudiant à modifier.</p>
+        <form action="/update" method="POST">
+            <label for="update_nom">Nom de l'étudiant (existant)</label>
+            <input type="text" id="update_nom" name="nom" required>
+
+            <label for="update_addr">Nouvelle Adresse</label>
+            <textarea id="update_addr" name="addr" required></textarea>
+
+            <label for="update_pin">Nouveau Pincode</label>
+            <input type="text" id="update_pin" name="pin" required>
+
+            <input type="submit" value="Modifier">
+        </form>
+    </div>
+</body>
+
+</html>
