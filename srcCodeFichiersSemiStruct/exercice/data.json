@@ -1,0 +1,84 @@
+{
+    "patients": [
+        {
+            "id": 1,
+            "prenom": "Jean",
+            "nom": "Dupont",
+            "age": 45,
+            "pathologie": "Hypertension",
+            "ville": "Paris"
+        },
+        {
+            "id": 2,
+            "prenom": "Marie",
+            "nom": "Curie",
+            "age": 32,
+            "pathologie": "Grippe",
+            "ville": "Lyon"
+        },
+        {
+            "id": 3,
+            "prenom": "Pierre",
+            "nom": "Martin",
+            "age": 58,
+            "pathologie": "Diabète",
+            "ville": "Marseille"
+        },
+        {
+            "id": 4,
+            "prenom": "Sophie",
+            "nom": "Lecomte",
+            "age": 29,
+            "pathologie": "Asthme",
+            "ville": "Bordeaux"
+        },
+        {
+            "id": 5,
+            "prenom": "Luc",
+            "nom": "Morel",
+            "age": 41,
+            "pathologie": "Lombalgie",
+            "ville": "Rennes"
+        },
+        {
+            "id": 6,
+            "prenom": "Julie",
+            "nom": "Roux",
+            "age": 33,
+            "pathologie": "Migraine",
+            "ville": "Tours"
+        },
+        {
+            "id": 7,
+            "prenom": "Antoine",
+            "nom": "Giraud",
+            "age": 55,
+            "pathologie": "Hypertension",
+            "ville": "Dijon"
+        },
+        {
+            "id": 8,
+            "prenom": "Isabelle",
+            "nom": "Fournier",
+            "age": 62,
+            "pathologie": "Arthrite",
+            "ville": "Nancy"
+        },
+        {
+            "id": 9,
+            "prenom": "Marc",
+            "nom": "Clement",
+            "age": 38,
+            "pathologie": "Allergie",
+            "ville": "Metz"
+        },
+        {
+            "id": 10,
+            "prenom": "Claire",
+            "nom": "Garnier",
+            "age": 27,
+            "pathologie": "Insomnie",
+            "ville": "Reims"
+        }
+    ]
+}
